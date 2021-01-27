@@ -19,3 +19,13 @@ func TestDiceSetParsing(t *testing.T) {
 		t.Fatalf(`diceSet.Of = %v, want 8`, die)
 	}
 }
+
+// TestDiceSetString tests that a DiceSet has the expected "XdY" notation when
+// converted to a string.
+func TestDiceSetString(t *testing.T) {
+	want := "1d20"
+
+	if s := (DiceSet{1, 20}).String(); s != want {
+		t.Fatalf(`(DiceSet{1, 20}).String() = %q, want %q`, s, want)
+	}
+}

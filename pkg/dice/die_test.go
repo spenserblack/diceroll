@@ -15,3 +15,11 @@ func TestDieParsing(t *testing.T) {
 		t.Fatalf(`NewDie("d12") = %v, want 12`, die)
 	}
 }
+
+// TestDieString tests that a Die has the expected "dY" notation when converted
+// to a string.
+func TestDieString(t *testing.T) {
+	if s := Die(6).String(); s != "d6" {
+		t.Fatalf(`Die(6).String() = %q, want "d6"`, s)
+	}
+}

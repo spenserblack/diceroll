@@ -25,3 +25,14 @@ func TestDiceRollParsing(t *testing.T) {
 		t.Fatalf(`diceRoll.Modifier = %v, want 5`, modifier)
 	}
 }
+
+// TestDiceRollString tests that a DiceRoll has the expected "XdY +... C"
+// notation when converted to a string.
+func TestDiceRollString(t *testing.T) {
+	diceRoll := DiceRoll{[]DiceSet{DiceSet{3, 4}, DiceSet{1, 6}}, 2}
+
+	want := "3d4 + 1d6 + 2"
+	if s := diceRoll.String(); s != want {
+		t.Fatalf(`diceRoll.String() = %q, want %q`, s, want)
+	}
+}
