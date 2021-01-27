@@ -5,7 +5,7 @@ type DiceSet struct {
 	Of    Die
 }
 
-func (d *DiceSet) Roll() int {
+func (d DiceSet) Roll() int {
 	return -1
 }
 

@@ -5,7 +5,7 @@ type DiceRoll struct {
 	Modifier int
 }
 
-func (d *DiceRoll) Roll() int {
+func (d DiceRoll) Roll() int {
 	return -1
 }
 
