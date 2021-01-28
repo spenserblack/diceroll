@@ -17,7 +17,13 @@ type Combo struct {
 // Roll returns a random value by rolling the sets of dice and adding an
 // optional modifier.
 func (d Combo) Roll() int {
-	return -1
+	var result int
+
+	for _, set := range d.Dice {
+		result += set.Roll()
+	}
+
+	return result + d.Modifier
 }
 
 func (d Combo) String() string {
