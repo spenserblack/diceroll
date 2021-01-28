@@ -33,6 +33,6 @@ func (d DiceRoll) String() string {
 	return builder.String()
 }
 
-func NewDiceRoll(notation string) (d *DiceRoll, err error) {
+func ParseDiceRoll(notation string) (d *DiceRoll, err error) {
 	return &DiceRoll{nil, 0}, nil
 }

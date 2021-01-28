@@ -5,7 +5,7 @@ import "testing"
 // TestDiceRoll creates a DiceRoll with the notation "XdY +... C" and confirms
 // that the notation has been parsed correctly.
 func TestDiceRollParsing(t *testing.T) {
-	diceRoll, err := NewDiceRoll("2d6 + 3d4 + 5")
+	diceRoll, err := ParseDiceRoll("2d6 + 3d4 + 5")
 
 	if err != nil {
 		t.Fatalf(`err = %v, want nil`, err)

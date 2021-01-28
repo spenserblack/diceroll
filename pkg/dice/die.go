@@ -12,6 +12,6 @@ func (d Die) String() string {
 	return fmt.Sprintf("d%v", rune(d))
 }
 
-func NewDie(notation string) (d Die, err error) {
+func ParseDie(notation string) (d Die, err error) {
 	return
 }

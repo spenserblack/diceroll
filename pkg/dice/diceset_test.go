@@ -5,7 +5,7 @@ import "testing"
 // TestDiceSetParsing creates a DiceSet with the notation "XdY" and confirms
 // that the notation has been parsed correctly.
 func TestDiceSetParsing(t *testing.T) {
-	diceSet, err := NewDiceSet("3d8")
+	diceSet, err := ParseDiceSet("3d8")
 
 	if err != nil {
 		t.Fatalf(`err = %v, want nil`, err)
