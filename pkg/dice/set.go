@@ -18,7 +18,13 @@ var setRegex = regexp.MustCompile(`^\s*(\d+)(.+)$`)
 
 // Roll returns a random value by rolling a set of dice.
 func (d Set) Roll() int {
-	return -1
+	var result int
+
+	for i := 0; i < d.count; i++ {
+		result += d.Of.Roll()
+	}
+
+	return result
 }
 
 func (d Set) String() string {
