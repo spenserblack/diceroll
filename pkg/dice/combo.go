@@ -5,8 +5,8 @@ import (
 	"strings"
 )
 
-// DiceRoll represents the complete formula for rolling dice.
-type DiceRoll struct {
+// Combo represents a combination of sets of dice to roll.
+type Combo struct {
 	// The sets of dice to roll.
 	Dice []Set
 	// A value to add to the result of the rolled dice.
@@ -15,11 +15,11 @@ type DiceRoll struct {
 
 // Roll returns a random value by rolling the sets of dice and adding an
 // optional modifier.
-func (d DiceRoll) Roll() int {
+func (d Combo) Roll() int {
 	return -1
 }
 
-func (d DiceRoll) String() string {
+func (d Combo) String() string {
 	var builder strings.Builder
 
 	if len(d.Dice) > 0 {
@@ -38,8 +38,8 @@ func (d DiceRoll) String() string {
 	return builder.String()
 }
 
-// ParseDiceRoll parses a string in the format "XdY +... C" into a Rollable
+// ParseCombo parses a string in the format "XdY +... C" into a Rollable
 // type.
-func ParseDiceRoll(notation string) (d *DiceRoll, err error) {
-	return &DiceRoll{nil, 0}, nil
+func ParseCombo(notation string) (d *Combo, err error) {
+	return &Combo{nil, 0}, nil
 }

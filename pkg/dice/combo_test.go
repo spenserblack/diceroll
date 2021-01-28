@@ -2,10 +2,10 @@ package dice
 
 import "testing"
 
-// TestDiceRoll creates a DiceRoll with the notation "XdY +... C" and confirms
+// TestCombo creates a Combo with the notation "XdY +... C" and confirms
 // that the notation has been parsed correctly.
-func TestDiceRollParsing(t *testing.T) {
-	diceRoll, err := ParseDiceRoll("2d6 + 3d4 + 5")
+func TestComboParsing(t *testing.T) {
+	diceRoll, err := ParseCombo("2d6 + 3d4 + 5")
 
 	if err != nil {
 		t.Fatalf(`err = %v, want nil`, err)
@@ -26,10 +26,10 @@ func TestDiceRollParsing(t *testing.T) {
 	}
 }
 
-// TestDiceRollString tests that a DiceRoll has the expected "XdY +... C"
+// TestComboString tests that a Combo has the expected "XdY +... C"
 // notation when converted to a string.
-func TestDiceRollString(t *testing.T) {
-	diceRoll := DiceRoll{[]Set{Set{3, 4}, Set{1, 6}}, 2}
+func TestComboString(t *testing.T) {
+	diceRoll := Combo{[]Set{Set{3, 4}, Set{1, 6}}, 2}
 
 	want := "3d4 + 1d6 + 2"
 	if s := diceRoll.String(); s != want {
