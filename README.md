@@ -1,5 +1,5 @@
-# diceroll-parsing
+# diceroll
 
-![CI](https://github.com/spenserblack/diceroll-parsing/workflows/CI/badge.svg)
+![CI](https://github.com/spenserblack/diceroll/workflows/CI/badge.svg)
 
 Parse dice notation

@@ -1,3 +1,3 @@
-module github.com/spenserblack/diceroll-parsing
+module github.com/spenserblack/diceroll
 
 go 1.15
