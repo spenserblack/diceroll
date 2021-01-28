@@ -1,6 +1,10 @@
 package dice
 
-import "fmt"
+import (
+	"fmt"
+	"regexp"
+	"strconv"
+)
 
 // Set is a set of dice (e.g. 3d4) that can be rolled.
 type Set struct {
@@ -9,6 +13,8 @@ type Set struct {
 	// d6 dice.
 	Of Die
 }
+
+var setRegex = regexp.MustCompile(`^\s*(\d+)(.+)$`)
 
 // Roll returns a random value by rolling a set of dice.
 func (d Set) Roll() int {
@@ -21,5 +27,19 @@ func (d Set) String() string {
 
 // ParseSet parses a string in the format "XdY" into a Rollable type.
 func ParseSet(notation string) (set Set, err error) {
-	return Set{0, 0}, nil
+	matches := setRegex.FindStringSubmatch(notation)
+
+	if len(matches) != 3 {
+		err = fmt.Errorf("parsing %q: invalid syntax", notation)
+	} else {
+		set.count, err = strconv.Atoi(matches[1])
+		if err != nil {
+			return set, fmt.Errorf("parsing %q: %w", notation, err)
+		}
+		set.Of, err = ParseDie(matches[2])
+		if err != nil {
+			return set, fmt.Errorf("parsing %q: %w", notation, err)
+		}
+	}
+	return
 }
