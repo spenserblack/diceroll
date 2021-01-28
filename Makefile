@@ -1,7 +1,10 @@
-.PHONY: format test vet
+.PHONY: format lint test vet
 
 format:
 	gofmt -s -w -l .
+
+lint: vet
+	golint ./...
 
 test:
 	go test ./...
