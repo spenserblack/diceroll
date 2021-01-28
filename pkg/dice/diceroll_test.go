@@ -29,7 +29,7 @@ func TestDiceRollParsing(t *testing.T) {
 // TestDiceRollString tests that a DiceRoll has the expected "XdY +... C"
 // notation when converted to a string.
 func TestDiceRollString(t *testing.T) {
-	diceRoll := DiceRoll{[]DiceSet{DiceSet{3, 4}, DiceSet{1, 6}}, 2}
+	diceRoll := DiceRoll{[]Set{Set{3, 4}, Set{1, 6}}, 2}
 
 	want := "3d4 + 1d6 + 2"
 	if s := diceRoll.String(); s != want {

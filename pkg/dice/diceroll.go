@@ -8,7 +8,7 @@ import (
 // DiceRoll represents the complete formula for rolling dice.
 type DiceRoll struct {
 	// The sets of dice to roll.
-	Dice []DiceSet
+	Dice []Set
 	// A value to add to the result of the rolled dice.
 	Modifier int
 }
