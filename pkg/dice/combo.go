@@ -40,6 +40,6 @@ func (d Combo) String() string {
 
 // ParseCombo parses a string in the format "XdY +... C" into a Rollable
 // type.
-func ParseCombo(notation string) (d *Combo, err error) {
-	return &Combo{nil, 0}, nil
+func ParseCombo(notation string) (combo Combo, err error) {
+	return Combo{nil, 0}, nil
 }

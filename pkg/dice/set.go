@@ -20,6 +20,6 @@ func (d Set) String() string {
 }
 
 // ParseSet parses a string in the format "XdY" into a Rollable type.
-func ParseSet(notation string) (d *Set, err error) {
-	return &Set{0, 0}, nil
+func ParseSet(notation string) (set Set, err error) {
+	return Set{0, 0}, nil
 }
