@@ -2,6 +2,7 @@ package dice
 
 import (
 	"fmt"
+	"strconv"
 	"strings"
 )
 
@@ -41,5 +42,27 @@ func (d Combo) String() string {
 // ParseCombo parses a string in the format "XdY +... C" into a Rollable
 // type.
 func ParseCombo(notation string) (combo Combo, err error) {
-	return Combo{nil, 0}, nil
+	fields := strings.Split(notation, "+")
+
+	// NOTE Most common format would be multiple sets of dice and once modifier.
+	if n := len(fields) - 1; n > 0 {
+		combo.Dice = make([]Set, 0, n)
+	}
+
+	for _, field := range fields {
+		if n, err := strconv.Atoi(strings.TrimSpace(field)); err != nil {
+			// Not a simple number -- try creating dice set.
+			set, err := ParseSet(field)
+
+			if err != nil {
+				return combo, fmt.Errorf("parsing %q: %w", notation, err)
+			}
+
+			combo.Dice = append(combo.Dice, set)
+		} else {
+			combo.Modifier += n
+		}
+	}
+
+	return
 }
