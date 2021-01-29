@@ -12,8 +12,8 @@ func ExampleParseDie() {
 		panic(err)
 	}
 
-	fmt.Println(die)
-	// Output: d6
+	fmt.Println(int(die))
+	// Output: 6
 }
 
 func ExampleDie_Roll() {
@@ -35,8 +35,10 @@ func ExampleParseSet() {
 		panic(err)
 	}
 
-	fmt.Println(diceSet)
-	// Output: 3d6
+	count, of := diceSet.Count, int(diceSet.Of)
+
+	fmt.Printf("%v %v-sided dice\n", count, of)
+	// Output: 3 6-sided dice
 }
 
 func ExampleSet_Roll() {
@@ -59,7 +61,10 @@ func ExampleParseCombo() {
 		panic(err)
 	}
 
-	fmt.Println(combo)
+	fmt.Printf("%vd%v", combo.Dice[0].Count, int(combo.Dice[0].Of))
+	fmt.Printf(" + %vd%v", combo.Dice[1].Count, int(combo.Dice[1].Of))
+	fmt.Printf(" + %vd%v", combo.Dice[2].Count, int(combo.Dice[2].Of))
+	fmt.Printf(" + %v", combo.Modifier)
 	// Output: 1d6 + 2d4 + 3d8 + 5
 }
 
