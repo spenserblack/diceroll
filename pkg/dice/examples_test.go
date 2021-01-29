@@ -24,6 +24,13 @@ func ExampleDie_Roll() {
 	// Output: true
 }
 
+func ExampleDie_String() {
+	die := dice.Die(6)
+
+	fmt.Println(die)
+	// Output: d6
+}
+
 func ExampleParseSet() {
 	diceSet, err := dice.ParseSet("3d6")
 
@@ -43,6 +50,13 @@ func ExampleSet_Roll() {
 	roll := diceSet.Roll()
 	fmt.Println(3 <= roll && roll <= 18)
 	// Output: true
+}
+
+func ExampleSet_String() {
+	diceSet := dice.Set{Count: 3, Of: 6}
+
+	fmt.Println(diceSet)
+	// Output: 3d6
 }
 
 func ExampleParseCombo() {
@@ -71,4 +85,17 @@ func ExampleCombo_Roll() {
 	roll := combo.Roll()
 	fmt.Println(4 <= roll && roll <= 10)
 	// Output: true
+}
+
+func ExampleCombo_String() {
+	combo := dice.Combo{
+		Dice: []dice.Set{
+			dice.Set{Count: 2, Of: 4},
+			dice.Set{Count: 1, Of: 8},
+		},
+		Modifier: 5,
+	}
+
+	fmt.Println(combo)
+	// Output: 2d4 + 1d8 + 5
 }
