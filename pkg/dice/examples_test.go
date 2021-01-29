@@ -17,11 +17,7 @@ func ExampleParseDie() {
 }
 
 func ExampleDie_Roll() {
-	die, err := dice.ParseDie("d6")
-
-	if err != nil {
-		panic(err)
-	}
+	die := dice.Die(6)
 
 	roll := die.Roll()
 	fmt.Println(1 <= roll && roll <= 6)
@@ -42,11 +38,7 @@ func ExampleParseSet() {
 }
 
 func ExampleSet_Roll() {
-	diceSet, err := dice.ParseSet("3d6")
-
-	if err != nil {
-		panic(err)
-	}
+	diceSet := dice.Set{Count: 3, Of: 6}
 
 	roll := diceSet.Roll()
 	fmt.Println(3 <= roll && roll <= 18)
@@ -69,10 +61,11 @@ func ExampleParseCombo() {
 }
 
 func ExampleCombo_Roll() {
-	combo, err := dice.ParseCombo("2d4 + 2")
-
-	if err != nil {
-		panic(err)
+	combo := dice.Combo{
+		Dice: []dice.Set{
+			dice.Set{Count: 2, Of: 4},
+		},
+		Modifier: 2,
 	}
 
 	roll := combo.Roll()
