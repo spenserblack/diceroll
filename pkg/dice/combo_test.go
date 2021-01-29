@@ -15,11 +15,11 @@ func TestComboParsing(t *testing.T) {
 		t.Fatalf(`len(diceRoll.Dice) = %v, want 2`, l)
 	}
 
-	if dice := diceRoll.Dice[0]; !(dice.count == 2 && dice.Of == 6) {
+	if dice := diceRoll.Dice[0]; !(dice.Count == 2 && dice.Of == 6) {
 		t.Fatalf(`diceRoll.Dice[0] = %+v, want 2d6`, dice)
 	}
 
-	if dice := diceRoll.Dice[1]; !(dice.count == 3 && dice.Of == 4) {
+	if dice := diceRoll.Dice[1]; !(dice.Count == 3 && dice.Of == 4) {
 		t.Fatalf(`diceRoll.Dice[1] = %+v, want 3d4`, dice)
 	}
 

@@ -11,8 +11,8 @@ func TestSetParsing(t *testing.T) {
 		t.Fatalf(`err = %v, want nil`, err)
 	}
 
-	if c := diceSet.count; c != 3 {
-		t.Fatalf(`diceSet.count = %v, want 3`, c)
+	if c := diceSet.Count; c != 3 {
+		t.Fatalf(`diceSet.Count = %v, want 3`, c)
 	}
 
 	if die := diceSet.Of; die != 8 {
