@@ -31,6 +31,11 @@ func ParseDie(notation string) (d Die, err error) {
 	} else {
 		var n int
 		n, err = strconv.Atoi(matches[1])
+
+		if n < 2 {
+			err = TooFewSidesError(n)
+		}
+
 		d = Die(n)
 	}
 
