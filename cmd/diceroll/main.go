@@ -3,8 +3,10 @@ package main
 import (
 	"fmt"
 	"github.com/spenserblack/diceroll/pkg/dice"
+	"math/rand"
 	"os"
 	"strings"
+	"time"
 )
 
 var allDice = strings.Join(os.Args[1:], "")
@@ -21,4 +23,8 @@ func main() {
 	}
 
 	fmt.Println(rollable.Roll())
+}
+
+func init() {
+	rand.Seed(time.Now().Unix())
 }
