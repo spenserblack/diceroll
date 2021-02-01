@@ -45,7 +45,7 @@ func TestComboParsingErr(t *testing.T) {
 	want := TooFewSidesError(1)
 	_, err := ParseCombo("3d2 + 2d1 + 2")
 
-	if err, ok := err.(TooFewSidesError); !ok || err != want {
+	if err != want {
 		t.Fatalf(`err = %v, want %v`, err, want)
 	}
 }

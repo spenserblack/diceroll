@@ -36,7 +36,7 @@ func TestSetParsingErr(t *testing.T) {
 	want := TooFewSidesError(1)
 	_, err := ParseSet("3d1")
 
-	if err, ok := err.(TooFewSidesError); !ok || err != want {
+	if err != want {
 		t.Fatalf(`err = %v, want %v`, err, want)
 	}
 }
