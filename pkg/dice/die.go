@@ -15,7 +15,7 @@ var dieRegex = regexp.MustCompile(`^\s*d(\d+)\s*$`)
 // Roll returns a random value by rolling the die. Will always be between 1
 // and the die value, inclusively.
 func (d Die) Roll() int {
-	return rand.Intn(int(d)-1) + 1
+	return rand.Intn(int(d)) + 1
 }
 
 func (d Die) String() string {
