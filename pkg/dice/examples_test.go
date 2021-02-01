@@ -77,7 +77,7 @@ func ExampleParseCombo() {
 func ExampleCombo_Roll() {
 	combo := dice.Combo{
 		Dice: []dice.Set{
-			dice.Set{Count: 2, Of: 4},
+			{Count: 2, Of: 4},
 		},
 		Modifier: 2,
 	}
@@ -90,8 +90,8 @@ func ExampleCombo_Roll() {
 func ExampleCombo_String() {
 	combo := dice.Combo{
 		Dice: []dice.Set{
-			dice.Set{Count: 2, Of: 4},
-			dice.Set{Count: 1, Of: 8},
+			{Count: 2, Of: 4},
+			{Count: 1, Of: 8},
 		},
 		Modifier: 5,
 	}

@@ -31,7 +31,7 @@ func TestComboParsing(t *testing.T) {
 // TestComboString tests that a Combo has the expected "XdY +... C"
 // notation when converted to a string.
 func TestComboString(t *testing.T) {
-	diceRoll := Combo{[]Set{Set{3, 4}, Set{1, 6}}, 2}
+	diceRoll := Combo{[]Set{{3, 4}, {1, 6}}, 2}
 
 	want := "3d4 + 1d6 + 2"
 	if s := diceRoll.String(); s != want {
