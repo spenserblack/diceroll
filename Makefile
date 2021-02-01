@@ -1,4 +1,10 @@
-.PHONY: format lint test vet
+.PHONY: clean format lint test vet
+
+clean:
+	rm diceroll
+
+diceroll:
+	go build -o diceroll ./cmd/diceroll/
 
 format:
 	gofmt -s -w -l .
