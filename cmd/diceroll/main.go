@@ -1,3 +1,4 @@
+// Parse dice notation and roll the dice
 package main
 
 import (
