@@ -1,6 +1,8 @@
 # diceroll
 
 ![CI](https://github.com/spenserblack/diceroll/workflows/CI/badge.svg)
+[![Go Report Card](https://goreportcard.com/badge/github.com/spenserblack/diceroll)](https://goreportcard.com/report/github.com/spenserblack/diceroll)
+[![Go Reference](https://pkg.go.dev/badge/github.com/spenserblack/diceroll.svg)](https://pkg.go.dev/github.com/spenserblack/diceroll)
 
 Roll some dice
 
