@@ -45,7 +45,7 @@ func ParseSet(notation string) (set Set, err error) {
 		}
 		set.Of, err = ParseDie(matches[2])
 		if err != nil {
-			return set, fmt.Errorf("parsing %q: %w", notation, err)
+			return set, err
 		}
 	}
 	return

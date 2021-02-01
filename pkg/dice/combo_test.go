@@ -38,3 +38,14 @@ func TestComboString(t *testing.T) {
 		t.Fatalf(`diceRoll.String() = %q, want %q`, s, want)
 	}
 }
+
+// TestComboParsingErr cretes a dice Combo with a set of dice with a die without
+// enough sides (e.g. a d1) and checks that an error is returned.
+func TestComboParsingErr(t *testing.T) {
+	want := TooFewSidesError(1)
+	_, err := ParseCombo("3d2 + 2d1 + 2")
+
+	if err != want {
+		t.Fatalf(`err = %v, want %v`, err, want)
+	}
+}

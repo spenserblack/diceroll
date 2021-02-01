@@ -29,3 +29,14 @@ func TestSetString(t *testing.T) {
 		t.Fatalf(`(Set{1, 20}).String() = %q, want %q`, s, want)
 	}
 }
+
+// TestSetParsingErr cretes a Set of dice without enough sides (e.g. a 3d1) and
+// checks that an error is returned.
+func TestSetParsingErr(t *testing.T) {
+	want := TooFewSidesError(1)
+	_, err := ParseSet("3d1")
+
+	if err != want {
+		t.Fatalf(`err = %v, want %v`, err, want)
+	}
+}

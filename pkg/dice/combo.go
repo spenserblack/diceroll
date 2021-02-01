@@ -61,7 +61,7 @@ func ParseCombo(notation string) (combo Combo, err error) {
 			set, err := ParseSet(field)
 
 			if err != nil {
-				return combo, fmt.Errorf("parsing %q: %w", notation, err)
+				return combo, err
 			}
 
 			combo.Dice = append(combo.Dice, set)
