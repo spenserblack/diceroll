@@ -15,3 +15,13 @@ combo, err := dice.ParseCombo("3d4 + 1d6 + 2")
 
 fmt.Println(combo.Roll())
 ```
+
+### cmd
+
+```bash
+# install
+go get -u github.com/spenserblack/diceroll/cmd/...
+
+# roll 3d4 + 1d6 + 2
+diceroll 3d4 + 1d6 + 2
+```
