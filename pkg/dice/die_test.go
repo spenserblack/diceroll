@@ -23,3 +23,14 @@ func TestDieString(t *testing.T) {
 		t.Fatalf(`Die(6).String() = %q, want "d6"`, s)
 	}
 }
+
+// TestDieParsingErr cretes a Die without enough sides (e.g. a d1) and checks
+// that an error is returned.
+func TestDieParsingErr(t *testing.T) {
+	want := TooFewSidesError(1)
+	_, err := ParseDie("d1")
+
+	if err, ok := err.(TooFewSidesError); !ok || err != want {
+		t.Fatalf(`err = %v, want %v`, err, want)
+	}
+}
